@@ -28,7 +28,7 @@ class Person{
 // * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 // * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
  
-class Instructor extends Student{
+class Instructor extends Person{
     constructor(instructorAttributes){
         super(instructorAttributes)
         this.specialty = instructorAttributes.specialty;
@@ -55,8 +55,38 @@ class Instructor extends Student{
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
-
-
+const studentOne = new Person ({
+    name : "Jack Johnson",
+    age : 34,
+    location : "Chicago",
+    previousBackground: "Guitarist",
+    className: "MT101",
+    favSubjects: ["Music Theory","Psychology","Biology"],
+    listsSubjects(){return favSubjects[0] + favSubjects[1] + favSubjects[2]},
+    PRAssignment(subject){return `${studentOne.name} has submitted a PR for ${subject}`},
+    sprintChallenge(subject){return `${studentOne.name} has begun sprint challenge ${subject}`}
+});
+const studentTwo = new Person ({
+    name : "Jimmy Hendrix",
+    age : "Living Dead",
+    location : "Seattle",
+    previousBackground: "Guitarist",
+    className: "HS101",
+    favSubjects: ["Music Theory","Botany","Chemistry"],
+    listsSubjects(){return favSubjects[0] + favSubjects[1] + favSubjects[2]},
+    PRAssignment(subject){return `${studentTwo.name} has submitted a PR for ${subject}`},
+    sprintChallenge(subject){return `${studentTwo.name} has begun sprint challenge ${subject}`}
+});const studentThree = new Person ({
+    name : "Harry Potter",
+    age : 20,
+    location : "London",
+    previousBackground: "Orphan",
+    className: "Gryffindor",
+    favSubjects: ["Defense Against The Dark Arts","Potions","Study of Magical Creatures"],
+    listsSubjects(){return favSubjects[0] + favSubjects[1] + favSubjects[2]},
+    PRAssignment(subject){return `${studentThree.name} has submitted a PR for ${subject}`},
+    sprintChallenge(subject){return `${studentThree.name} has begun sprint challenge ${subject}`}
+});
 
 
 // #### Project Manager
