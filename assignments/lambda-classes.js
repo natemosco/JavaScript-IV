@@ -31,9 +31,9 @@ class Person{
 class Instructor extends Person{
     constructor(instructorAttributes){
         super(instructorAttributes)
-        this.specialty = instructorAttributes.specialty;
-        this.favLanguage = instructorAttributes.favLanguage;
-        this.catchPhrase = instructorAttributes.catchPhrase;
+        this.newSpecialty = instructorAttributes.specialty;
+        this.newFavLanguage = instructorAttributes.favLanguage;
+        this.newCatchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject){return 'Today we are learning about ${subject}'}
     grade(student,subject){return `${student.name} receives a perfect score on ${subject}`}   
@@ -76,7 +76,8 @@ const studentTwo = new Person ({
     listsSubjects(){return favSubjects[0] + favSubjects[1] + favSubjects[2]},
     PRAssignment(subject){return `${studentTwo.name} has submitted a PR for ${subject}`},
     sprintChallenge(subject){return `${studentTwo.name} has begun sprint challenge ${subject}`}
-});const studentThree = new Person ({
+});
+const studentThree = new Person ({
     name : "Harry Potter",
     age : 20,
     location : "London",
@@ -89,6 +90,21 @@ const studentTwo = new Person ({
 });
 
 
+const teacherOne = new Instructor ({
+    name : "Brit Hemming",
+    age : 31,
+    location : "Canada",
+    specialty: "Teaching Remotely",
+    favLanguage: "JS",
+    catchPhrase: "Don't be a memorization Hero!",
+    previousBackground: "Student and Activist",
+    className: "SSteach101",
+    favSubjects: ["JS","React","Python"],
+    listsSubjects(){return favSubjects[0] + favSubjects[1] + favSubjects[2]},
+    PRAssignment(subject){return `${teacherOne.name} has submitted a PR for ${subject}`},
+    sprintChallenge(subject){return `${teacherOne.name} has begun sprint challenge ${subject}`}
+});
+
 // #### Project Manager
 
 // * Now that we have instructors and students, we'd be nowhere without our PM's
@@ -99,3 +115,24 @@ const studentTwo = new Person ({
 // * ProjectManagers have the following Methods:
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+
+class ProjectManager extends Instructor{
+    constructor(PMAttributes){
+        super(instructorAttributes)
+        this.newGradClassName = PMAttributes.newGradClassName;
+        this.newFavInstructor = PMAttributes.newFavInstructor;
+    }
+    standup(channel){return `${ProjectManager.name} announces to ${channel}, @channel standy times!​​​​​`}
+    debugsCode(student,subject){return `${ProjectManager.name} debugs ${student.name}'s code on {subject}`}   
+};
+
+const mikaelaC = new ProjectManager({
+    name: "Mikaela Currier",
+    age: "24?",
+    location: "Atlanta Georgia",
+    favLanguage: "JS",
+    specialty: "front-end Web Dev",
+    catchPhrase: "unknown",
+    gradClassName: "CS1",
+    favInstructor: "Ryan"
+})
